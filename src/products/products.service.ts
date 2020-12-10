@@ -26,7 +26,6 @@ export class ProductsService {
         return this.productModel.findByIdAndRemove(id)
     }
 
-    // TODO Андрей Ларионов: разобраться, почему при установке типа UpdateProductDto для productDto, функция, принимая его вторым аргументом, считает его неправильным. При том, что если убрать тип, и положить сюда тот же объект, функция сработает нормально.
     async update(productDto: UpdateProductDto, id: string): Promise<Product> {
         return this.productModel.findByIdAndUpdate(id, [productDto], { new: true })
     }
