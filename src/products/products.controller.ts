@@ -8,30 +8,32 @@ import { Product } from './schemas/product.schema';
 export class ProductsController {
     constructor(private readonly productsService: ProductsService) {}
 
+    // Получение всех документов
     @Get()
-    // @Redirect('https://google.com')
     getAll(): Promise<Product[]> {
         return this.productsService.getAll()
     }
 
+    // Получение документа по id
     @Get(':id')
     getOne(@Param('id') id: string): Promise<Product> {
         return this.productsService.getById(id)
     }
 
+    // Добавление нового документа
     @Post()
     @HttpCode(HttpStatus.CREATED)
-    @Header('Cache-Controle', 'none')
     create(@Body() createProductDto: CreateProductDto): Promise<Product> {
-        createProductDto.versionKey = false;
         return this.productsService.create(createProductDto)
     }
 
+    // Удаление документа по id
     @Delete(':id')
     delete(@Param('id') id: string): Promise<Product> {
         return this.productsService.remove(id) 
     }
     
+    // Изменение документа по id
     @Put(':id')
     update(@Body() updateProductDto: UpdateProductDto, @Param('id') id: string): Promise<Product> {
         return this.productsService.update(updateProductDto, id)
