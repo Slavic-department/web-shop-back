@@ -1,5 +1,3 @@
-import { Comment } from './../schemas/product.schema';
-
 export class UpdateProductDto {
     readonly productCode: number
     readonly title: string
@@ -26,7 +24,7 @@ export class UpdateProductDto {
     readonly images: Buffer[]
     readonly videos: string[]
     
-    readonly comments: Comment[]
+    readonly comments: object[]
 
     readonly addDate: Date
     readonly isHidden: boolean

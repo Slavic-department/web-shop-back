@@ -1,5 +1,3 @@
-import { Comment } from './../schemas/product.schema';
-
 export class CreateProductDto {
     readonly productCode: number
     readonly title: string
