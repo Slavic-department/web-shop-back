@@ -11,7 +11,11 @@ export class User {
     @Prop() email: string
     @Prop() password: string
     @Prop() fullName: string
+
     @Prop() isEmailConfirmed: boolean
+    @Prop() confirmationToken: string
+    @Prop() isBanned: boolean
+    
     @Prop() group: string
     @Prop() settings: Settings
 }

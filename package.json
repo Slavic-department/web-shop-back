@@ -31,12 +31,14 @@
     "bcrypt": "^5.0.0",
     "helmet": "^4.2.0",
     "mongoose": "^5.9.23",
+    "nodemailer": "^6.4.17",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "rxjs": "^6.6.3"
+    "rxjs": "^6.6.3",
+    "uuid-token-generator": "^1.0.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^7.5.1",
