@@ -1,4 +1,4 @@
-import { Controller, Delete, Post, Get, Param, Body, Put, HttpCode, HttpStatus } from '@nestjs/common';
+import { Controller, Delete, Post, Get, Param, Body, Put, HttpCode, HttpStatus, Header } from '@nestjs/common';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import { ProductsService } from './products.service';
@@ -11,6 +11,7 @@ export class ProductsController {
     // Получение всех документов
     @Get()
     getAll(): Promise<Product[]> {
+        console.log("yeep")
         return this.productsService.getAll()
     }
 
@@ -22,7 +23,7 @@ export class ProductsController {
 
     // Добавление нового документа
     @Post()
-    @HttpCode(HttpStatus.CREATED)
+    @Header('Content-Type', 'application/json;charset=utf-8')
     create(@Body() createProductDto: CreateProductDto): Promise<Product> {
         return this.productsService.create(createProductDto)
     }
