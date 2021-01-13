@@ -13,8 +13,9 @@ export class ProductsService {
         return this.productModel.find().exec()
     }
 
-    async getById(id: string): Promise<Product> {
-        return this.productModel.findById(id)
+    async getById(id: string): Promise<Product> { 
+        // TODO: подумать, правильно ли id сравнивать и с _id, и с кодом товара 
+        return this.productModel.findOne({ "$or": [{"_id": id}, {"code": id}] } )
     }
 
     async create(productDto: CreateProductDto): Promise<Product> {
